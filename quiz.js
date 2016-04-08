@@ -5,11 +5,10 @@ var CarLot = (function(showCar) {
 
   showCar.populatePage = function(cars) {
     var inventory = cars.cars
-    console.log("Hmmmm", inventory)
     var carString = "";
     for (var i = 0; i < inventory.length; i++) {
       var inventoryList = inventory[i]
-      carString += `<div class="col-xs-4"><h2>${inventoryList.make}</h2>`;
+      carString += `<div class="col-xs-4" id="track"><h2>${inventoryList.make}</h2>`;
       carString += `<h3>${inventoryList.model}</h3>`;
       carString += `<h4>${inventoryList.color}</h4>`;
       carString += `<h4>${inventoryList.year}</h4>`;
@@ -18,21 +17,28 @@ var CarLot = (function(showCar) {
     };
     
     displayCar.innerHTML += carString;
+    displayCar.addEventListener("click", function() {
+      showCar.clearInput();
+      for (var i in inventory) {      
+        document.getElementsByClassName("col-xs-4")[i].style.borderWidth = "7px";
+        document.getElementsByClassName("col-xs-4")[i].style.borderColor = "blue";
+        document.getElementsByClassName("col-xs-4")[i].style.borderStyle = "solid";
+      }
+    });
   }
-
+  
   showCar.clearInput = function() {
     document.getElementById("input").value = "";
     document.getElementById("input").focus();
   }
 
-
-  showCar.styleSheet = function(inventory) {
-    console.log("class", inventory)
-    for (var i = 0; i < inventory.length; i++) {
-      document.getElementByClassName("col-xs-4").style.borderColor = cars[i].color;
-    };
+  showCar.chooseBorder = function(cars) {
+      var inventory = cars.cars;
+      for (var i = 0; i < inventory.length; i++) {
+        document.getElementsByClassName("col-xs-4")[i].style.borderColor = inventory[i].color;
+        document.getElementsByClassName("col-xs-4")[i].style.borderStyle = "dashed";
+      };  
   }
 
   return showCar;
-
 }(CarLot))  

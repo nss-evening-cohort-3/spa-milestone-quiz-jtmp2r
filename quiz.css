@@ -1,12 +1,6 @@
-.coolColor {
-  border: black;
-}
 
-.myColor {
-	border: darkred;
-}
-
-.border {
+.borderClass {
 	border-width: 7px;
-	background-color: 
+	border: solid;
+	border-color: yellow;
 }

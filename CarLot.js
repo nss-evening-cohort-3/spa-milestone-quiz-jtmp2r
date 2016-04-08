@@ -7,13 +7,14 @@ var CarLot = (function() {
       return inventory; 
   	},
 
-		loadInventory: function() {
+		loadInventory: function(callBack) {
 			var inventoryLoader = new XMLHttpRequest();
 
 			  inventoryLoader.addEventListener("load", function() {
-			  	inventory = JSON.parse(this.responseText);
-			  	console.log("My Car", inventory);
-			  	CarLot.populatePage(inventory)
+			  	inventory.cars = JSON.parse(this.responseText);
+			  	console.log("My Car", inventory.cars);
+			  	CarLot.populatePage(inventory.cars);
+			  	CarLot.chooseBorder(inventory.cars);
 			  })
 
 			  inventoryLoader.open("GET", "inventory.json");
