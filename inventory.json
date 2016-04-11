@@ -5,7 +5,7 @@
       "model": "Town Car",
       "year": "2006",
       "price": "10,999",
-      "color": "Black",
+      "color": "green",
       "purchased": false,
       "description": "This is an immaculate 2006 Lincoln Town Car with only 25000 miles on it. Leather seats, power everything."
     },
