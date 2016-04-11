@@ -1,24 +1,26 @@
 var Carlot = (function(carEvents) {
 
-  carEvents.addClickEvent = function(cars) {
-    console.log("hello")
-    showCar.clearInput();
-    var inventory = cars.cars;
-    for (var i in inventory) {      
-      document.getElementsByClassName("addBorder")[i].style.borderWidth = "7px";
-      document.getElementsByClassName("addBorder")[i].style.borderColor = "blue";
-      document.getElementsByClassName("addBorder")[i].style.borderStyle = "solid";
+	carEvents.activateEvents = function() { 
+    var car = CarLot.getter();
+    console.log(car.length)
+  	for(var i in car) {
+		 var carDom = document.getElementById('car-card' + i)
+      carDom.addEventListener("click", function() {
+      	console.log("somethin", carDom)
+      	carEvents.addClickEvent(carDom);
+      })	
     }
-  }  
-  
-  carEvents.clearInput = function() {
-    document.getElementById("input").value = "";
-    document.getElementById("input").focus();
-  }
+   }  
 
-
-
+	  carEvents.addClickEvent = function(cars) {
+	  	console.log("check", cars)
+	    CarLot.clearInput();
+	    var inventory = cars; 
+	      cars.style.borderWidth = "7px";
+	      cars.style.borderColor = "blue";
+	      cars.style.borderStyle = "solid";
+	  }   
 
 
   return carEvents;
-}(Carlot))
+})(CarLot)
