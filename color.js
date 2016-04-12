@@ -2,12 +2,7 @@ var CarLot = (function(carColor) {
 
 
 
-	carColor.editDesc = function(event) {
-    edit = event.target;
-    edit.innerHTML = inputBox.value;
-  }
-  
-  carColor.chooseBorder = function(car) {
+  carColor.chooseBorder = function() {
   	var carLook = CarLot.getter();
   	console.log(carLook)
     for (var i = 0; i < carLook.length; i++) {
