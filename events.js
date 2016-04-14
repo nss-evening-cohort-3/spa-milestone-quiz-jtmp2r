@@ -2,7 +2,7 @@ var Carlot = (function(carEvents) {
 
 	carEvents.activateEvents = function() { 
     var car = CarLot.getter();
-    console.log(car.length)
+    console.log("Length", car.length)
   	for(var i = 0; i < car.length; i++) {
      console.log("somethin", car.length)
 		 var carDom = document.getElementById('car-card' + [i])
@@ -23,15 +23,16 @@ var Carlot = (function(carEvents) {
 	  }
 
   carEvents.editDesc = function(event) {
-    // edit = event.target;
-    carEvents.update(edit)
+    edit = event.target;
+    carEvents.update(edit, input)
   }
 
   carEvents.update = function(input) {
-    var car = CarLot.getter();
     input = document.getElementById("input");
       var editTag = document.getElementsByTagName("p");
-      editTag.innerHTML = input.value;
+      for (var i = 0; i < editTag.length; i++) {
+        editTag.innerHTML = input.value;
+      }
   }
 
 
