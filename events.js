@@ -4,35 +4,33 @@ var Carlot = (function(carEvents) {
     var car = CarLot.getter();
     console.log("Length", car.length)
   	for(var i = 0; i < car.length; i++) {
-     console.log("somethin", car.length)
-		 var carDom = document.getElementById('car-card' + [i])
-      carDom.addEventListener("click", function() {
-      	carEvents.addClickEvent(carDom);
-      })  
-      document.getElementById("input").addEventListener("keyup", function() {
-        carEvents.editDesc();
-      })
+      console.log("somethin", car.length)
+		  var carDom = document.getElementById('car-card' + [i])
+      document.getElementById("input").addEventListener("keyup", carEvents.editDesc)
     }
   }  
 
-	carEvents.addClickEvent = function(cars) {
-	    CarLot.clearInput(); 
-	      cars.style.borderWidth = "7px";
-	      cars.style.borderColor = "blue";
-	      cars.style.borderStyle = "solid";
-	  }
+	carEvents.newBorder = function(event) {
+    CarLot.clearInput(); 
+    var card = event.currentTarget;
+    card.classList.toggle("currentCard");
+    console.log("event", event.currentTarget)
+  }
 
   carEvents.editDesc = function(event) {
-    edit = event.target;
-    carEvents.update(edit, input)
+    var edit = event.currentTarget;
+    carEvents.update(edit, input);
   }
 
   carEvents.update = function(input) {
     input = document.getElementById("input");
-      var editTag = document.getElementsByTagName("p");
-      for (var i = 0; i < editTag.length; i++) {
-        editTag.innerHTML = input.value;
-      }
+    var editTag = document.getElementsByClassName("currentCard");
+    console.log("edit", editTag)
+    var curentId = editTag[0].id.split("car-card")[1];
+    console.log("id", curentId)
+    var editTag2 = document.getElementById("edit"+curentId);
+    console.log(editTag2)
+    editTag2.innerHTML = input.value;
   }
 
 

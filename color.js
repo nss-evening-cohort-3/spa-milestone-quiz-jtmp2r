@@ -7,7 +7,6 @@ var CarLot = (function(carColor) {
   	console.log(carLook)
     for (var i = 0; i < carLook.length; i++) {
       document.getElementsByClassName("col-xs-4")[i].style.borderColor = carLook[i].color;
-      document.getElementsByClassName("col-xs-4")[i].style.borderStyle = "dashed";
     };  
   }
 

@@ -11,8 +11,8 @@ var CarLot = (function(showCar) {
       var loadCar = document.createElement("div");
       loadCar.innerHTML = (carHold);
       displayCar.appendChild(loadCar);
-      // var car = document.getElementById(`car-card${i}`);
-      // showCar.addClickEvent(car);
+      var car = document.getElementById(`car-card${i}`);
+      car.addEventListener("click", CarLot.newBorder)
     });  
     CarLot.activateEvents();  
     CarLot.chooseBorder();
@@ -22,11 +22,11 @@ var CarLot = (function(showCar) {
     function carBuilder(cars, i) {
       var inventoryList = cars
       var carString = "";
-      carString += `<div class="col-xs-4" id="car-card${i}"><h2>${inventoryList.make}</h2>`;
+      carString += `<div class="col-xs-4 origBorder" id="car-card${i}"><h2>${inventoryList.make}</h2>`;
       carString += `<h3>${inventoryList.model}</h3>`;
       carString += `<h4>${inventoryList.color}</h4>`;
       carString += `<h4>${inventoryList.year}</h4>`;
-      carString += `<p>${inventoryList.description}</p>`;
+      carString += `<p id="edit${i}">${inventoryList.description}</p>`;
       carString += `<footer>Price: ${inventoryList.price}</footer></div>`;
       return carString;
     }
