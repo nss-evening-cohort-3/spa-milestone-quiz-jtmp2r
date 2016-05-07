@@ -13,7 +13,7 @@ var CarLot = (function(showCar) {
       displayCar.appendChild(loadCar);
       var car = document.getElementById(`car-card${i}`);
       car.addEventListener("click", CarLot.newBorder)
-    });  
+      });  
     CarLot.activateEvents();  
     CarLot.chooseBorder();
   }
