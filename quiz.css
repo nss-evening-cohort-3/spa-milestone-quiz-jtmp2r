@@ -1,0 +1,11 @@
+
+.origBorder {
+	border: dotted;
+}
+
+
+.currentCard {
+	border-width: 15px;
+	border-style: solid;
+}
+
